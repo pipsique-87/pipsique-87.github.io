@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MonPubMx | Monedas Conmemorativas Personalizadas</title>
+    <meta name="description" content="Diseñamos y fabricamos monedas conmemorativas personalizadas para eventos, publicidad, aniversarios, fechas históricas, obsequios y ornamentos. Calidad premium y diseños únicos.">
+    <meta name="keywords" content="monedas conmemorativas, monedas personalizadas, custom coins, eventos, publicidad, aniversarios, fechas históricas, obsequios, ornamentos, México">
+    <meta name="author" content="MonPubMx">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            color: #1e1e2a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navegación */
+        header {
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eaeef5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2d3a4b;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        /* Botón global */
+        .btn-primary {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(to right, #1e293b, #3b82f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        /* Secciones comunes */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #0f172a;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s;
+            text-align: center;
+            border: 1px solid #eef2ff;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            border-color: #cbdffc;
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        /* Sobre mí / equipo */
+        .about-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #334155;
+            margin-bottom: 20px;
+        }
+
+        .about-text p.justify {
+            text-align: justify;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            min-height: 300px; /* Asegura espacio */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Testimonios */
+        .testimonial {
+            background: #f8fafc;
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 30px;
+            border: 1px solid #cbd5e1;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background: #2563eb;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e6;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 30px;
+        }
+
+        .footer-collaboration {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #cbd5e6;
+        }
+
+        .footer-collaboration strong {
+            color: #2563eb;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #cbd5e6;
+            font-size: 1.5rem;
+            transition: color 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-links a .fa-instagram {
+            color: #E1306C;
+        }
+
+        .social-links a .fa-whatsapp {
+            color: #25D366;
+        }
+
+        .social-links a .fa-facebook {
+            color: #1877F2;
+        }
+
+        .social-links a:hover {
+            color: #2563eb;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector select {
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            font-family: inherit;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 20px 0 10px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .social-links {
+                gap: 15px;
+            }
+            .social-links a {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">MonPubMx Coins</div>
+            <div class="menu-icon" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="language-selector">
+                <label for="lang-select">Idioma:</label>
+                <select id="lang-select">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="pt">Português</option>
+                </select>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero / Inicio -->
+    <section id="inicio">
+        <div class="container hero">
+            <h1>Monedas conmemorativas <br> personalizadas únicas a precios muy competitivos</h1>
+            <p>Creamos monedas exclusivas para eventos, publicidad, aniversarios, fechas históricas, obsequios y ornamentos. Calidad premium y diseños a medida.</p>
+            <a href="#contacto" class="btn-primary">Solicitar cotización gratis <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Monedas para Eventos</h3>
+                    <p>Monedas conmemorativas personalizadas para bodas, graduaciones, inauguraciones y celebraciones especiales.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Monedas Publicitarias</h3>
+                    <p>Promociona tu marca con monedas de alta calidad, ideales para regalos corporativos y campañas de marketing.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h3>Monedas de Aniversario</h3>
+                    <p>Celebra hitos importantes con diseños únicos que capturan momentos inolvidables.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-history"></i>
+                    <h3>Fechas Históricas</h3>
+                    <p>Monedas que honran acontecimientos históricos, con diseños precisos y materiales duraderos.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-gift"></i>
+                    <h3>Obsequios Personalizados</h3>
+                    <p>Regalos únicos y significativos para ocasiones especiales, con grabados personalizados.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Ornamentos Decorativos</h3>
+                    <p>Piezas artísticas para decoración, coleccionismo o como elementos decorativos premium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio / Blog -->
+    <section id="portafolio" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Nuestro Blog: Tradición de las Monedas</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 40px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="images/trade.jpg" alt="Trade" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="images/escuadron.jpg" alt="Escuadrón" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="images/Guardia.jpg" alt="Guardia" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+                <div style="flex: 1; min-width: 500px;">
+                    <h3>La Tradición de las Monedas Conmemorativas</h3>
+                    <p style="text-align: justify; margin-bottom: 20px;">La tradición proviene de la antigüedad, se estilaba colocar monedas en los buques de guerra siendo una antigua costumbre marinera, a menudo llamada "ceremonia de la moneda" o "monedas al pie del mástil", que busca atraer buena suerte, protección y prosperidad a la nave y su tripulación.</p>
+                    <p style="text-align: justify; margin-bottom: 20px;">Aunque el origen exacto es incierto, se atribuye comúnmente a los romanos o vikingos, quienes ponían monedas de plata o cobre en el hueco de la carlinga (base del palo mayor) para asegurar el pasaje de los marineros al más allá si el barco se hundía (pagar a Caronte) o como amuleto de protección.</p>
+                    <p style="text-align: justify; margin-bottom: 20px;">Con el tiempo, esta tradición perdura en las marinas de guerra modernas al botar nuevos barcos, a menudo se utilizan monedas de plata o conmemorativas.</p>
+                    <p style="text-align: justify; margin-bottom: 20px;">Además de la ceremonia del mástil, las marinas de guerra hoy en día utilizan las "monedas de desafío" (challenge coins) para reconocer logros y fortalecer la camaradería entre oficiales, siendo obsequiadas por altos mandos, tradición que ha evolucionado de las guerras mundiales a la actualidad.</p>
+                    <p style="text-align: justify; margin-bottom: 20px;">Esta tradición que ha ido evolucionado a través de los siglos se mantiene viva, regalar o intercambiar una moneda conmemorativa, representa la confianza, amistad y lealtad de quién la entrega en propia mano.</p>
+                    <p style="text-align: justify;">Si bien existen muchas historias sobre el verdadero origen de esta noble tradición, puedes creer la que más te guste y seguirla, manteniéndola viva al transmitirla a las nuevas generaciones.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <img src="images/antiguas.jpg" alt="Antiguas" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <img src="images/challenge.jpg" alt="Monedas de desafío" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <img src="images/ceremonia_moneda.jpg" alt="Ceremonia de la moneda" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <img src="images/laboratorio.jpg" alt="Laboratorio" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre nosotros -->
+    <section id="sobre-nosotros">
+        <div class="container about-flex">
+            <div class="about-text">
+                <h3>Sobre <span style="color:#2563eb;">MonPubMx Coins</span></h3>
+                <p class="justify">Somos especialistas en la creación de monedas conmemorativas personalizadas, fusionando arte, historia y calidad premium. Con años de experiencia, hemos ayudado a empresas, familias y organizaciones a crear piezas únicas que perduran en el tiempo.</p>
+                <p class="justify">Nuestro proceso incluye diseño personalizado, selección de materiales de alta calidad y fabricación artesanal para garantizar que cada moneda sea una obra maestra.</p>
+                <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                    <li><i class="fas fa-check" style="color: #2563eb; margin-right: 10px;"></i>Diseños 100% personalizados</li>
+                    <li><i class="fas fa-check" style="color: #2563eb; margin-right: 10px;"></i>Materiales premium y duraderos</li>
+                    <li><i class="fas fa-check" style="color: #2563eb; margin-right: 10px;"></i>Entrega rápida y soporte post-venta</li>
+                </ul>
+                <a href="#contacto" class="btn-primary" style="margin-top: 12px;">Cotiza tu moneda</a>
+            </div>
+            <div class="about-img">
+                <img src="images/monedas.jpeg" alt="Monedas creadas" style="width: 100%; height: auto; max-height: 250px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <img src="images/semar.jpg" alt="Semar" style="width: 100%; height: auto; max-height: 250px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios cortos (extra) -->
+    <section style="background-color: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="cards-grid">
+                <div class="testimonial">
+                    <i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i>
+                    <p style="margin: 15px 0;">"Las monedas de aniversario que encargamos fueron perfectas. La calidad es excepcional y el diseño capturó exactamente lo que queríamos."</p>
+                    <strong>— María González, Empresa Familiar</strong>
+                </div>
+                <div class="testimonial">
+                    <i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i>
+                    <p style="margin: 15px 0;">"Usamos las monedas publicitarias en nuestro evento corporativo. Fueron un éxito total y nuestros clientes las adoraron."</p>
+                    <strong>— Roberto Sánchez, Gerente de Marketing</strong>
+                </div>
+                <div class="testimonial">
+                    <i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i><i class="fas fa-star" style="color: #fbbf24;"></i>
+                    <p style="margin: 15px 0;">"Las monedas conmemorativas de la boda fueron el regalo perfecto. Todos nuestros invitados las guardaron como tesoro."</p>
+                    <strong>— Ana López, Novia</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">Cotiza tu moneda personalizada sin costo</h2>
+            <div class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/xnjlrqqw" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Asunto" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Describe lo que deseas cotizar..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-upload">Sube imágenes o diseños (.pdf, .png, .jpg, .gif):</label>
+                        <input type="file" id="file-upload" name="files" accept=".pdf,.png,.jpg,.jpeg,.gif" multiple>
+                    </div>
+                    <button type="submit">Enviar cotización <i class="fas fa-paper-plane"></i></button>
+                    <p id="formFeedback" style="margin-top: 15px; font-size: 0.9rem; text-align: center;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-collaboration">
+                Derechos reservados © México 2026 <strong>MonPubMx Coins</strong> en colaboración con <strong>Artículos Lechuza</strong>
+            </div>
+            <p style="margin-bottom: 20px; font-size: 0.9rem;">Especialistas en monedas conmemorativas personalizadas</p>
+        </div>
+        
+        <div class="social-links">
+            <p>Contacto y cotizaciones: monpubmx@gmail.com</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JS para menú móvil, formulario y cambio de idioma -->
+<script>
+    // Menú hamburguesa
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Simulación de envío de formulario
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        
+        feedback.innerHTML = '⏳ Enviando cotización...';
+        feedback.style.color = '#2563eb';
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                feedback.innerHTML = '✅ ¡Cotización enviada! Te contactaremos pronto.';
+                feedback.style.color = '#15803d';
+                form.reset();
+                setTimeout(() => {
+                    feedback.innerHTML = '';
+                }, 4000);
+            } else {
+                feedback.innerHTML = '❌ Error al enviar. Inténtalo de nuevo.';
+                feedback.style.color = '#dc2626';
+            }
+        } catch (error) {
+            feedback.innerHTML = '❌ Error de conexión. Inténtalo de nuevo.';
+            feedback.style.color = '#dc2626';
+        }
+    });
+
+    // Cambio de idioma
+    const langSelect = document.getElementById('lang-select');
+    const translations = {
+        es: {
+            inicio: 'Inicio',
+            productos: 'Productos',
+            portafolio: 'Portafolio',
+            'sobre-nosotros': 'Sobre nosotros',
+            contacto: 'Contacto',
+            heroTitle: 'Monedas conmemorativas <br> personalizadas únicas a precios muy competitivos',
+            heroDesc: 'Creamos monedas exclusivas para eventos, publicidad, aniversarios, fechas históricas, obsequios y ornamentos. Calidad premium y diseños a medida.',
+            heroBtn: 'Solicitar cotización gratis',
+            productosTitle: 'Nuestros Productos',
+            prod1: 'Monedas para Eventos',
+            prod1Desc: 'Monedas conmemorativas personalizadas para bodas, graduaciones, inauguraciones y celebraciones especiales.',
+            prod2: 'Monedas Publicitarias',
+            prod2Desc: 'Promociona tu marca con monedas de alta calidad, ideales para regalos corporativos y campañas de marketing.',
+            prod3: 'Monedas de Aniversario',
+            prod3Desc: 'Celebra hitos importantes con diseños únicos que capturan momentos inolvidables.',
+            prod4: 'Fechas Históricas',
+            prod4Desc: 'Monedas que honran acontecimientos históricos, con diseños precisos y materiales duraderos.',
+            prod5: 'Obsequios Personalizados',
+            prod5Desc: 'Regalos únicos y significativos para ocasiones especiales, con grabados personalizados.',
+            prod6: 'Ornamentos Decorativos',
+            prod6Desc: 'Piezas artísticas para decoración, coleccionismo o como elementos decorativos premium.',
+            blogTitle: 'Nuestro Blog: Tradición de las Monedas',
+            blogSub: 'La Tradición de las Monedas Conmemorativas',
+            blogText: 'La tradición proviene de la antigüedad, se estilaba colocar monedas en los buques de guerra siendo una antigua costumbre marinera, a menudo llamada "ceremonia de la moneda" o "monedas al pie del mástil", que busca atraer buena suerte, protección y prosperidad a la nave y su tripulación.\n\nAunque el origen exacto es incierto, se atribuye comúnmente a los romanos o vikingos, quienes ponían monedas de plata o cobre en el hueco de la carlinga (base del palo mayor) para asegurar el pasaje de los marineros al más allá si el barco se hundía (pagar a Caronte) o como amuleto de protección.\n\nCon el tiempo, esta tradición perdura en las marinas de guerra modernas al botar nuevos barcos, a menudo se utilizan monedas de plata o conmemorativas.\n\nAdemás de la ceremonia del mástil, las marinas de guerra hoy en día utilizan las "monedas de desafío" (challenge coins) para reconocer logros y fortalecer la camaradería entre oficiales, siendo obsequiadas por altos mandos, tradición que ha evolucionado de las guerras mundiales a la actualidad.\n\nEsta tradición que ha ido evolucionado a través de los siglos se mantiene viva, regalar o intercambiar una moneda conmemorativa, representa la confianza, amistad y lealtad de quién la entrega en propia mano.\n\nSi bien existen muchas historias sobre el verdadero origen de esta noble tradición, puedes creer la que más te guste y seguirla, manteniéndola viva al transmitirla a las nuevas generaciones.',
+            aboutTitle: 'Sobre <span style="color:#2563eb;">MonPubMx Coins</span>',
+            aboutText1: 'Somos especialistas en la creación de monedas conmemorativas personalizadas, fusionando arte, historia y calidad premium. Con años de experiencia, hemos ayudado a empresas, familias y organizaciones a crear piezas únicas que perduran en el tiempo.',
+            aboutText2: 'Nuestro proceso incluye diseño personalizado, selección de materiales de alta calidad y fabricación artesanal para garantizar que cada moneda sea una obra maestra.',
+            aboutList1: 'Diseños 100% personalizados',
+            aboutList2: 'Materiales premium y duraderos',
+            aboutList3: 'Entrega rápida y soporte post-venta',
+            aboutBtn: 'Cotiza tu moneda',
+            testiTitle: 'Lo que dicen nuestros clientes',
+            contactTitle: 'Cotiza tu moneda personalizada sin costo',
+            namePh: 'Nombre completo',
+            emailPh: 'Correo electrónico',
+            subjectPh: 'Asunto',
+            descPh: 'Describe lo que deseas cotizar...',
+            fileLabel: 'Sube imágenes o diseños (.pdf, .png, .jpg, .gif):',
+            submitBtn: 'Enviar cotización',
+            footerText: 'Derechos reservados © México 2026 MonPubMx Coins en colaboración con Artículos Lechuza'
+        },
+        en: {
+            inicio: 'Home',
+            productos: 'Products',
+            portafolio: 'Portfolio',
+            'sobre-nosotros': 'About us',
+            contacto: 'Contact',
+            heroTitle: 'Unique custom <br> commemorative coins at very competitive prices',
+            heroDesc: 'We create exclusive coins for events, advertising, anniversaries, historical dates, gifts and ornaments. Premium quality and custom designs.',
+            heroBtn: 'Request free quote',
+            productosTitle: 'Our Products',
+            prod1: 'Event Coins',
+            prod1Desc: 'Custom commemorative coins for weddings, graduations, inaugurations and special celebrations.',
+            prod2: 'Advertising Coins',
+            prod2Desc: 'Promote your brand with high-quality coins, ideal for corporate gifts and marketing campaigns.',
+            prod3: 'Anniversary Coins',
+            prod3Desc: 'Celebrate important milestones with unique designs that capture unforgettable moments.',
+            prod4: 'Historical Dates',
+            prod4Desc: 'Coins that honor historical events, with precise designs and durable materials.',
+            prod5: 'Personalized Gifts',
+            prod5Desc: 'Unique and meaningful gifts for special occasions, with custom engravings.',
+            prod6: 'Decorative Ornaments',
+            prod6Desc: 'Artistic pieces for decoration, collecting or as premium decorative elements.',
+            blogTitle: 'Our Blog: Tradition of Coins',
+            blogSub: 'The Tradition of Commemorative Coins',
+            blogText: 'The tradition comes from antiquity, it was customary to place coins on warships as an ancient maritime custom, often called "coin ceremony" or "coins at the foot of the mast", which seeks to attract good luck, protection and prosperity to the ship and its crew.\n\nAlthough the exact origin is uncertain, it is commonly attributed to the Romans or Vikings, who placed silver or copper coins in the hole of the keelson (base of the main mast) to ensure the passage of sailors to the afterlife if the ship sank (pay Charon) or as a protective amulet.\n\nOver time, this tradition endures in modern navies when launching new ships, often using silver or commemorative coins.\n\nIn addition to the mast ceremony, modern navies today use "challenge coins" to recognize achievements and strengthen camaraderie among officers, being given by high commanders, a tradition that has evolved from world wars to the present.\n\nThis tradition that has evolved over the centuries remains alive, giving or exchanging a commemorative coin represents the trust, friendship and loyalty of whoever delivers it by hand.\n\nAlthough there are many stories about the true origin of this noble tradition, you can believe the one you like best and make it part of your life, to keep it alive by transmitting it to new generations.',
+            aboutTitle: 'About <span style="color:#2563eb;">MonPubMx Coins</span>',
+            aboutText1: 'We are specialists in creating custom commemorative coins, fusing art, history and premium quality. With years of experience, we have helped companies, families and organizations create unique pieces that last over time.',
+            aboutText2: 'Our process includes custom design, selection of high-quality materials and artisanal manufacturing to ensure each coin is a masterpiece.',
+            aboutList1: '100% custom designs',
+            aboutList2: 'Premium and durable materials',
+            aboutList3: 'Fast delivery and after-sales support',
+            aboutBtn: 'Quote your coin',
+            testiTitle: 'What our clients say',
+            contactTitle: 'Quote your custom coin for free',
+            namePh: 'Full name',
+            emailPh: 'Email address',
+            subjectPh: 'Subject',
+            descPh: 'Describe what you want to quote...',
+            fileLabel: 'Upload images or designs (.pdf, .png, .jpg, .gif):',
+            submitBtn: 'Send quote',
+            footerText: 'Copyright © México 2026 MonPubMx Coins in collaboration with Artículos Lechuza'
+        },
+        fr: {
+            inicio: 'Accueil',
+            productos: 'Produits',
+            portafolio: 'Portefeuille',
+            'sobre-nosotros': 'À propos de nous',
+            contacto: 'Contact',
+            heroTitle: 'Pièces commémoratives <br> personnalisées uniques à des prix très compétitifs',
+            heroDesc: 'Nous créons des pièces exclusives pour événements, publicité, anniversaires, dates historiques, cadeaux et ornements. Qualité premium et designs sur mesure.',
+            heroBtn: 'Demander un devis gratuit',
+            productosTitle: 'Nos Produits',
+            prod1: 'Pièces pour Événements',
+            prod1Desc: 'Pièces commémoratives personnalisées pour mariages, diplômes, inaugurations et célébrations spéciales.',
+            prod2: 'Pièces Publicitaires',
+            prod2Desc: 'Promouvez votre marque avec des pièces de haute qualité, idéales pour cadeaux d\'entreprise et campagnes marketing.',
+            prod3: 'Pièces d\'Anniversaire',
+            prod3Desc: 'Célébrez des jalons importants avec des designs uniques qui capturent des moments inoubliables.',
+            prod4: 'Dates Historiques',
+            prod4Desc: 'Pièces qui honorent les événements historiques, avec des designs précis et des matériaux durables.',
+            prod5: 'Cadeaux Personnalisés',
+            prod5Desc: 'Cadeaux uniques et significatifs pour occasions spéciales, avec gravures personnalisées.',
+            prod6: 'Ornements Décoratifs',
+            prod6Desc: 'Pièces artistiques pour décoration, collection ou comme éléments décoratifs premium.',
+            blogTitle: 'Notre Blog: Tradition des Pièces',
+            blogSub: 'La Tradition des Pièces Commémoratives',
+            blogText: 'La tradition vient de l\'antiquité, il était coutumier de placer des pièces sur les navires de guerre en tant qu\'ancienne coutume maritime, souvent appelée "cérémonie de la pièce" ou "pièces au pied du mât", qui vise à attirer la chance, la protection et la prospérité au navire et à son équipage.\n\nBien que l\'origine exacte soit incertaine, elle est communément attribuée aux Romains ou aux Vikings, qui plaçaient des pièces d\'argent ou de cuivre dans le trou de la quille (base du mât principal) pour assurer le passage des marins dans l\'au-delà si le navire coulait (payer Charon) ou comme amulette protectrice.\n\nAvec le temps, cette tradition perdure dans les marines de guerre modernes lors du lancement de nouveaux navires, utilisant souvent des pièces d\'argent ou commémoratives.\n\nEn plus de la cérémonie du mât, les marines de guerre modernes utilisent aujourd\'hui les "pièces de défi" (challenge coins) pour reconnaître les réalisations et renforcer la camaraderie entre les officiers, étant offertes par les hauts commandants, une tradition qui a évolué des guerres mondiales à nos jours.\n\nCette tradition qui a évolué au fil des siècles reste vivante, donner ou échanger une pièce commémorative représente la confiance, l\'amitié et la loyauté de celui qui la remet en main propre.\n\nBien qu\'il existe de nombreuses histoires sur la véritable origine de cette noble tradition, vous pouvez croire celle qui vous plaît le plus et en faire partie de votre vie, pour la garder vivante en la transmettant aux nouvelles générations.',
+            aboutTitle: 'À propos de <span style="color:#2563eb;">MonPubMx Coins</span>',
+            aboutText1: 'Nous sommes spécialistes dans la création de pièces commémoratives personnalisées, fusionnant art, histoire et qualité premium. Avec des années d\'expérience, nous avons aidé entreprises, familles et organisations à créer des pièces uniques qui durent dans le temps.',
+            aboutText2: 'Notre processus comprend la conception personnalisée, la sélection de matériaux de haute qualité et la fabrication artisanale pour garantir que chaque pièce soit un chef-d\'œuvre.',
+            aboutList1: 'Designs 100% personnalisés',
+            aboutList2: 'Matériaux premium et durables',
+            aboutList3: 'Livraison rapide et support après-vente',
+            aboutBtn: 'Deviser votre pièce',
+            testiTitle: 'Ce que disent nos clients',
+            contactTitle: 'Deviser votre pièce personnalisée gratuitement',
+            namePh: 'Nom complet',
+            emailPh: 'Adresse e-mail',
+            subjectPh: 'Sujet',
+            descPh: 'Décrivez ce que vous voulez devis...',
+            fileLabel: 'Téléchargez des images ou designs (.pdf, .png, .jpg, .gif):',
+            submitBtn: 'Envoyer le devis',
+            footerText: 'Droits réservés © México 2026 MonPubMx Coins en collaboration avec Artículos Lechuza'
+        },
+        pt: {
+            inicio: 'Início',
+            productos: 'Produtos',
+            portafolio: 'Portfólio',
+            'sobre-nosotros': 'Sobre nós',
+            contacto: 'Contato',
+            heroTitle: 'Moedas comemorativas <br> personalizadas únicas a preços muito competitivos',
+            heroDesc: 'Criamos moedas exclusivas para eventos, publicidade, aniversários, datas históricas, presentes e ornamentos. Qualidade premium e designs sob medida.',
+            heroBtn: 'Solicitar cotação gratuita',
+            productosTitle: 'Nossos Produtos',
+            prod1: 'Moedas para Eventos',
+            prod1Desc: 'Moedas comemorativas personalizadas para casamentos, formaturas, inaugurações e celebrações especiais.',
+            prod2: 'Moedas Publicitárias',
+            prod2Desc: 'Promova sua marca com moedas de alta qualidade, ideais para presentes corporativos e campanhas de marketing.',
+            prod3: 'Moedas de Aniversário',
+            prod3Desc: 'Celebre marcos importantes com designs únicos que capturam momentos inesquecíveis.',
+            prod4: 'Datas Históricas',
+            prod4Desc: 'Moedas que honram eventos históricos, com designs precisos e materiais duráveis.',
+            prod5: 'Presentes Personalizados',
+            prod5Desc: 'Presentes únicos e significativos para ocasiões especiais, com gravações personalizadas.',
+            prod6: 'Ornamentos Decorativos',
+            prod6Desc: 'Peças artísticas para decoração, coleção ou como elementos decorativos premium.',
+            blogTitle: 'Nosso Blog: Tradição das Moedas',
+            blogSub: 'A Tradição das Moedas Comemorativas',
+            blogText: 'A tradição vem da antiguidade, era costume colocar moedas em navios de guerra como um antigo costume marítimo, frequentemente chamado de "cerimônia da moeda" ou "moedas ao pé do mastro", que busca atrair boa sorte, proteção e prosperidade ao navio e sua tripulação.\n\nEmbora a origem exata seja incerta, é comumente atribuída aos romanos ou vikings, que colocavam moedas de prata ou cobre no buraco da quilha (base do mastro principal) para garantir a passagem dos marinheiros para o além se o navio afundasse (pagar Caronte) ou como amuleto protetor.\n\nCom o tempo, essa tradição perdura nas marinhas de guerra modernas ao lançar novos navios, frequentemente usando moedas de prata ou comemorativas.\n\nAlém da cerimônia do mastro, as marinhas de guerra modernas hoje usam "moedas de desafio" (challenge coins) para reconhecer conquistas e fortalecer a camaradagem entre oficiais, sendo oferecidas por altos comandantes, uma tradição que evoluiu das guerras mundiais até hoje.\n\nEssa tradição que evoluiu ao longo dos séculos permanece viva, dar ou trocar uma moeda comemorativa representa a confiança, amizade e lealdade de quem a entrega em mão própria.\n\nEmbora existam muitas histórias sobre a verdadeira origem dessa nobre tradição, você pode acreditar na que mais gostar e torná-la parte de sua vida, para mantê-la viva transmitindo-a às novas gerações.',
+            aboutTitle: 'Sobre <span style="color:#2563eb;">MonPubMx Coins</span>',
+            aboutText1: 'Somos especialistas na criação de moedas comemorativas personalizadas, fundindo arte, história e qualidade premium. Com anos de experiência, ajudamos empresas, famílias e organizações a criar peças únicas que duram no tempo.',
+            aboutText2: 'Nosso processo inclui design personalizado, seleção de materiais de alta qualidade e fabricação artesanal para garantir que cada moeda seja uma obra-prima.',
+            aboutList1: 'Designs 100% personalizados',
+            aboutList2: 'Materiais premium e duráveis',
+            aboutList3: 'Entrega rápida e suporte pós-venda',
+            aboutBtn: 'Cotar sua moeda',
+            testiTitle: 'O que dizem nossos clientes',
+            contactTitle: 'Cotar sua moeda personalizada sem custo',
+            namePh: 'Nome completo',
+            emailPh: 'Endereço de e-mail',
+            subjectPh: 'Assunto',
+            descPh: 'Descreva o que deseja cotar...',
+            fileLabel: 'Envie imagens ou designs (.pdf, .png, .jpg, .gif):',
+            submitBtn: 'Enviar cotação',
+            footerText: 'Direitos reservados © México 2026 MonPubMx Coins em colaboração com Artículos Lechuza'
+        }
+    };
+
+    function changeLanguage(lang) {
+        // Navegación
+        document.querySelector('a[href="#inicio"]').textContent = translations[lang].inicio;
+        document.querySelector('a[href="#productos"]').textContent = translations[lang].productos;
+        document.querySelector('a[href="#portafolio"]').textContent = translations[lang].portafolio;
+        document.querySelector('a[href="#sobre-nosotros"]').textContent = translations[lang]['sobre-nosotros'];
+        document.querySelector('a[href="#contacto"]').textContent = translations[lang].contacto;
+
+        // Hero
+        document.querySelector('#inicio h1').innerHTML = translations[lang].heroTitle;
+        document.querySelector('#inicio p').textContent = translations[lang].heroDesc;
+        document.querySelector('#inicio a').innerHTML = translations[lang].heroBtn + ' <i class="fas fa-arrow-right"></i>';
+
+        // Productos
+        document.querySelector('#productos h2').textContent = translations[lang].productosTitle;
+        const prodCards = document.querySelectorAll('#productos .card');
+        prodCards[0].querySelector('h3').textContent = translations[lang].prod1;
+        prodCards[0].querySelector('p').textContent = translations[lang].prod1Desc;
+        prodCards[1].querySelector('h3').textContent = translations[lang].prod2;
+        prodCards[1].querySelector('p').textContent = translations[lang].prod2Desc;
+        prodCards[2].querySelector('h3').textContent = translations[lang].prod3;
+        prodCards[2].querySelector('p').textContent = translations[lang].prod3Desc;
+        prodCards[3].querySelector('h3').textContent = translations[lang].prod4;
+        prodCards[3].querySelector('p').textContent = translations[lang].prod4Desc;
+        prodCards[4].querySelector('h3').textContent = translations[lang].prod5;
+        prodCards[4].querySelector('p').textContent = translations[lang].prod5Desc;
+        prodCards[5].querySelector('h3').textContent = translations[lang].prod6;
+        prodCards[5].querySelector('p').textContent = translations[lang].prod6Desc;
+
+        // Blog
+        document.querySelector('#portafolio h2').textContent = translations[lang].blogTitle;
+        document.querySelector('#portafolio h3').textContent = translations[lang].blogSub;
+        const blogPs = document.querySelectorAll('#portafolio p');
+        const blogTexts = translations[lang].blogText.split('\n\n');
+        blogPs.forEach((p, index) => {
+            if (blogTexts[index]) p.textContent = blogTexts[index];
+        });
+
+        // About
+        document.querySelector('#sobre-nosotros h3').innerHTML = translations[lang].aboutTitle;
+        const aboutPs = document.querySelectorAll('#sobre-nosotros p');
+        aboutPs[0].textContent = translations[lang].aboutText1;
+        aboutPs[1].textContent = translations[lang].aboutText2;
+        const aboutLis = document.querySelectorAll('#sobre-nosotros li');
+        aboutLis[0].textContent = translations[lang].aboutList1;
+        aboutLis[1].textContent = translations[lang].aboutList2;
+        aboutLis[2].textContent = translations[lang].aboutList3;
+        document.querySelector('#sobre-nosotros a').textContent = translations[lang].aboutBtn;
+
+        // Testimonios
+        document.querySelector('#portafolio + section h2').textContent = translations[lang].testiTitle;
+
+        // Contacto
+        document.querySelector('#contacto h2').textContent = translations[lang].contactTitle;
+        document.querySelector('input[placeholder*="Nombre"]').placeholder = translations[lang].namePh;
+        document.querySelector('input[placeholder*="Correo"]').placeholder = translations[lang].emailPh;
+        document.querySelector('input[placeholder*="Asunto"]').placeholder = translations[lang].subjectPh;
+        document.querySelector('textarea').placeholder = translations[lang].descPh;
+        document.querySelector('label[for="file-upload"]').textContent = translations[lang].fileLabel;
+        document.querySelector('button[type="submit"]').innerHTML = translations[lang].submitBtn + ' <i class="fas fa-paper-plane"></i>';
+
+        // Footer
+        document.querySelector('.footer-collaboration').innerHTML = translations[lang].footerText;
+    }
+
+    langSelect.addEventListener('change', (e) => {
+        changeLanguage(e.target.value);
+    });
+</script>
+</body>
+</html>
